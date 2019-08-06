@@ -12,6 +12,10 @@ import { HeroService } from '../hero.service';
 export class HeroDetailComponent implements OnInit {
   hero: Hero;
 
+  save(): void {
+    this.heroService.updateHero(this.hero)
+      .subscribe(() => this.goBack());
+  }
   constructor( private route: ActivatedRoute,
                private heroService: HeroService,
                private location: Location) { }
